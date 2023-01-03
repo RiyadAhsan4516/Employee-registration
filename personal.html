@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap"
+            rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Personal Info</title>
+</head>
+<body>
+
+<button class="btn btn1"><</button>
+<button class="btn btn2">></button>
+
+<!--  PAGE 1-->
+<div class="page1">
+    <h2 class="pageNo">PAGE 1 (PERSONAL INFORMATION)</h2>
+    <form class="form form1">
+        <label for="name" style="margin-right: 1.5rem">NAME:</label>
+        <input type="text" id="name" name="name" minlength="5" maxlength="50" pattern="^[A-Za-z\s.-]+$" autocomplete="off"
+               required value="Riyad"/><br/>
+        <label for="email" style="margin-right: 1.3rem">EMAIL:</label>
+        <input type="text" id="email" name="email" pattern="[a-z0-9._%+-]+[.io]$" autocomplete="off" required
+               value="riyad.io"/><br/>
+        <label for="phone" style="margin-right: 1.1rem">PHONE:</label>
+        <input type="text" id="phone" name="phone" minlength="11" maxlength="14" autocomplete="off" required
+               value="01718000140"/><br/>
+        <label for="email" style="margin-right: 3.2rem">NID:</label>
+        <input type="tel" placeholder="1XXX-5XX-6X" id="NID" name="NID" onchange=checkNIDValidity(this)
+               autocomplete="off" required value="1222-522-62"/><br/>
+        <label for="startDate" style="margin-right: 1.1rem">START DATE:</label>
+        <input type="date" id="startDate" onchange=checkStartDateValidity(this) name="startDate" value="2020-11-11" autocomplete="off"
+               required/><br/>
+        <label for="endDate" style="margin-right: 2.4rem">END DATE:</label>
+        <input type="date" id="endDate" onchange=checkEndDateValidity(this) value="2021-11-11" name="endDate"/><br/>
+        <label for="birthDate" style="margin-right: 1.1rem">BIRTH DATE:</label>
+        <input type="date" id="birthDate" name="birthDate" onchange=checkBirthDateValidity(this) value="1990-12-31" required/><br/>
+        <input type="submit" value="Submit" id="submit">
+    </form>
+    <h2 class="pageNo err"></h2>
+</div>
+
+<!--page 2-->
+<div class="page2 opaque">
+    <h2 class="pageNo">PAGE 2 (EDUCATIONAL BACKGROUND)</h2>
+    <form class="form form2" id="form2">
+        <select name="degree" id="degree1" class="degree">
+            <option value="bsc">BSC</option>
+            <option value="msc">MSC</option>
+            <option value="phd">Phd</option>
+        </select>
+        <input type="date" id="degreeStart1" class="degreeStart">
+        <input type="date" id="degreeEnd1" onchange=checkYearValidity(this,{id:1}) class="degreeStart"><br>
+    </form>
+    <button class="add">+</button>
+    <button class="submitbtn" type="submit" form="form2" value="submit">submit form</button>
+</div>
+
+<!--PAGE 3-->
+<div class="page3 opaque">
+    <h2 class="pageNo">PAGE 3 (SUMMARY)</h2>
+    <div class="summarybox">
+    </div>
+    <button class="add push">PUSH DATA</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
