@@ -52,9 +52,9 @@
     <h2 class="pageNo">PAGE 2 (EDUCATIONAL BACKGROUND)</h2>
     <form class="form form2" id="form2">
         <select name="degree" id="degree1" class="degree">
-            <option value="bsc">BSC</option>
-            <option value="msc">MSC</option>
-            <option value="phd">Phd</option>
+            <option value="1">BSC</option>
+            <option value="2">MSC</option>
+            <option value="3">Phd</option>
         </select>
         <input type="date" id="degreeStart1" class="degreeStart">
         <input type="date" id="degreeEnd1" onchange=checkYearValidity(this,{id:1}) class="degreeStart"><br>
@@ -68,7 +68,7 @@
     <h2 class="pageNo">PAGE 3 (SUMMARY)</h2>
     <div class="summarybox">
     </div>
-    <button class="add push">PUSH DATA</button>
+    <button class="add push" id="sub">PUSH DATA</button>
 </div>
 <script src="script.js"></script>
 </body>

@@ -7,6 +7,7 @@ const add = document.querySelector(".add");
 const form1 = document.querySelector(".form1");
 const form2 = document.querySelector(".form2");
 const push = document.querySelector(".submitbtn");
+const sub = document.getElementById("sub");
 
 let name;
 let email;
@@ -75,8 +76,8 @@ add.addEventListener("click", function (e) {
     count++;
     if (count < 6) {
         let element = `<select name="degree" id="degree${count}" class="degree">
-            <option value="bsc">BSC</option>
-            <option value="msc">MSC</option>
+            <option value="1">BSC</option>
+            <option value="2">MSC</option>
             <option value="phd">Phd</option>
         </select>
         <input type="date" id="degreeStart${count}" class="degreeStart">
@@ -100,7 +101,7 @@ function activateSummary() {
 }
 
 // text/plain, */*'
-push.addEventListener("click", async function (e) {
+sub.addEventListener("click", async function (e) {
     const data = {
         name,
         email,
@@ -121,12 +122,14 @@ push.addEventListener("click", async function (e) {
         counter++;
     }
 
-    await fetch("https://63a99939594f75dc1dba7100.mockapi.io/api/v1/employee/Info", {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
+    // console.log(JSON.stringify(data));
+
+    await fetch("http://127.0.0.1:3000/api/v1/employee/personal", {
+        method: "POST",
+        cache: "no-cache",
+        headers: { "Content-Type": "application/json"},
+        redirect: "follow",
+        referrerPolicy: "no-referrer",
         body: JSON.stringify(data)
     })
 })
